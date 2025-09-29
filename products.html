@@ -23,18 +23,44 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 <header class="bg-[#0a2540] text-white sticky top-0 z-50">
-<div class="max-w-7xl mx-auto flex items-center justify-between p-4">
-<a href="index.html" class="flex items-center space-x-3">
-<img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md">
-<span class="text-2xl font-bold">MOTOVICTUS</span>
-</a>
-<nav class="hidden md:flex space-x-6 text-lg font-semibold">
-<a href="products.html" class="hover:text-[#f97316]">Products</a>
-<a href="instructions.html" class="hover:text-[#f97316]">Instructions</a>
-<a href="about.html" class="hover:text-[#f97316]">About Us</a>
-</nav>
-</div>
+  <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+    <a href="index.html" class="flex items-center space-x-3">
+      <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md">
+      <span class="text-2xl font-bold">MOTOVICTUS</span>
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="md:hidden flex flex-col space-y-1" id="menu-btn">
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+    </button>
+
+    <!-- Desktop Menu -->
+    <nav id="menu" class="hidden md:flex space-x-6 text-lg font-semibold">
+      <a href="products.html" class="hover:text-[#f97316]">Products</a>
+      <a href="instructions.html" class="hover:text-[#f97316]">Instructions</a>
+      <a href="about.html" class="hover:text-[#f97316]">About Us</a>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-[#0a2540] p-4 md:hidden">
+    <a href="products.html" class="hover:text-[#f97316] block">Products</a>
+    <a href="instructions.html" class="hover:text-[#f97316] block">Instructions</a>
+    <a href="about.html" class="hover:text-[#f97316] block">About Us</a>
+  </nav>
 </header>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden'); // toggle visibility
+    mobileMenu.classList.toggle('flex');   // ensure flex layout when visible
+  });
+</script>
 
 
 <main class="max-w-6xl mx-auto px-4 py-16">
