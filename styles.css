@@ -30,11 +30,11 @@ body {
 
 /* Header & Navigation */
 header {
-  background: rgba(6, 10, 15, 0.9);
+  background: rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 6px rgba(255, 128, 13, 0.6);
 }
 
 .nav-inner {
@@ -188,4 +188,11 @@ footer {
   nav ul {
     gap: 12px;
   }
+}
+
+/* styles.css addition for logo */
+.logo-img {
+height: 44px;
+width: auto;
+border-radius: 6px;
 }
