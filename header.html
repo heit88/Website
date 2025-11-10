@@ -1,19 +1,27 @@
 <header class="bg-[#0a2540] text-white sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
-    <a href="index.html" class="flex items-center space-x-3">
-      <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md">
-      <span class="text-2xl font-bold">MOTOVICTUS</span>
-    </a>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between p-4">
+
+    <!-- Left: Logo + Centered Motto -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md">
+        <span class="text-2xl font-bold">MOTOVICTUS</span>
+      </a>
+
+      <p class="text-sm md:text-base text-orange-600 italic tracking-wide mt-1">
+        Ride Longer. Ride Smarter.
+      </p>
+    </div>
 
     <!-- Hamburger Button -->
-    <button class="md:hidden flex flex-col space-y-1" id="menu-btn">
+    <button class="md:hidden flex flex-col space-y-1 mt-3 md:mt-0" id="menu-btn">
       <span class="w-6 h-0.5 bg-white"></span>
       <span class="w-6 h-0.5 bg-white"></span>
       <span class="w-6 h-0.5 bg-white"></span>
     </button>
 
     <!-- Desktop Menu -->
-    <nav id="menu" class="hidden md:flex space-x-6 text-lg font-semibold">
+    <nav id="menu" class="hidden md:flex space-x-6 text-lg font-semibold mt-3 md:mt-0">
       <a href="products.html" class="hover:text-[#f97316]">Products</a>
       <a href="instructions.html" class="hover:text-[#f97316]">Instructions</a>
       <a href="about.html" class="hover:text-[#f97316]">About Us</a>
@@ -33,7 +41,7 @@
   const mobileMenu = document.getElementById('mobile-menu');
 
   menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden'); // toggle visibility
-    mobileMenu.classList.toggle('flex');   // ensure flex layout when visible
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
   });
 </script>
