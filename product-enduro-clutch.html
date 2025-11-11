@@ -19,12 +19,75 @@
 <div id="header" class="invisible"></div>
 
 <main class="max-w-4xl mx-auto px-4 py-16">
-  <!-- Product Image -->
-  <img src="images/enduro-clutch.jpg" alt="Enduro Clutch Spring" class="w-full aspect-square object-cover rounded mb-6">
 
+	<!-- Product Image Carousel -->
+	<div class="relative overflow-hidden rounded-lg mb-6">
+	<div id="carousel-track" class="flex transition-transform duration-300 ease-in-out">
+	  <img src="images/enduro-clutch.jpg" alt="Enduro Clutch Spring" class="w-full aspect-square object-cover flex-shrink-0">
+	  <img src="images/enduro-clutch-installed.jpg" alt="Enduro Clutch Installed" class="w-full aspect-square object-cover flex-shrink-0">
+	</div>
+
+	<!-- Carousel Buttons -->
+	<button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 left-2 bg-black/40 text-white rounded-full p-2 hover:bg-black/60">
+	  &#10094;
+	</button>
+	<button id="next-btn" class="absolute top-1/2 -translate-y-1/2 right-2 bg-black/40 text-white rounded-full p-2 hover:bg-black/60">
+	  &#10095;
+	</button>
+
+	<!-- Dots -->
+	<div id="carousel-dots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">
+	  <span class="dot w-3 h-3 bg-white/70 rounded-full cursor-pointer"></span>
+	  <span class="dot w-3 h-3 bg-white/30 rounded-full cursor-pointer"></span>
+	</div>
+	</div>
+	
+	<script>
+	const track = document.getElementById('carousel-track');
+	const dots = document.querySelectorAll('.dot');
+	let index = 0;
+
+	function updateCarousel() {
+	  track.style.transform = `translateX(-${index * 100}%)`;
+	  dots.forEach((dot, i) => {
+		dot.classList.toggle('bg-white/70', i === index);
+		dot.classList.toggle('bg-white/30', i !== index);
+	  });
+	}
+
+	document.getElementById('next-btn').addEventListener('click', () => {
+	  index = (index + 1) % dots.length;
+	  updateCarousel();
+	});
+
+	document.getElementById('prev-btn').addEventListener('click', () => {
+	  index = (index - 1 + dots.length) % dots.length;
+	  updateCarousel();
+	});
+
+	dots.forEach((dot, i) => {
+	  dot.addEventListener('click', () => {
+		index = i;
+		updateCarousel();
+	  });
+	});
+
+	// Swipe support for mobile
+	let startX = 0;
+	track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+	track.addEventListener('touchend', e => {
+	  const endX = e.changedTouches[0].clientX;
+	  if (startX - endX > 50) {
+		index = (index + 1) % dots.length;
+	  } else if (endX - startX > 50) {
+		index = (index - 1 + dots.length) % dots.length;
+	  }
+	  updateCarousel();
+	});
+	</script>
+  
   <!-- Title and Summary -->
   <h1 class="text-3xl font-bold mb-2">Enduro Clutch Spring</h1>
-  <p class="text-orange-600 font-semibold mb-4">Lighter Pull. Smoother Feel.</p>
   <p class="text-lg mb-6">
     The Enduro Clutch Spring provides a lighter clutch pull, smoother clutch feel, and improved modulation.
   </p>
