@@ -1,108 +1,161 @@
-<!-- Fixed index.html with square featured product images -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MOTOVICTUS — Offroad Parts</title>
+  <title>MOTOVICTUS — Premium Off-Road Dirt Bike Parts | Ride Longer. Ride Smarter.</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Premium off-road dirt bike parts engineered for endurance and performance. Shop our Enduro Clutch Spring, Map Switch Relocation Kit, and custom levers. Designed by riders, for riders.">
+  <meta name="keywords" content="dirt bike parts, off-road motorcycle parts, enduro clutch spring, map switch relocation, motorcycle accessories, KTM parts, Husqvarna parts, GasGas parts, Beta parts">
+  <meta name="author" content="MOTOVICTUS">
+
+  <!-- Open Graph Tags for Social Sharing -->
+  <meta property="og:title" content="MOTOVICTUS — Premium Off-Road Dirt Bike Parts">
+  <meta property="og:description" content="Premium off-road dirt bike parts engineered for endurance and performance. Ride Longer. Ride Smarter.">
+  <meta property="og:image" content="https://motovictus.com/images/hero.jpg">
+  <meta property="og:url" content="https://motovictus.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MOTOVICTUS — Premium Off-Road Dirt Bike Parts">
+  <meta name="twitter:description" content="Premium off-road dirt bike parts engineered for endurance and performance.">
+  <meta name="twitter:image" content="https://motovictus.com/images/hero.jpg">
+
+  <!-- Fonts and Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style> body { font-family: 'Inter', sans-serif; } </style>
-  <!-- Favicon for browsers -->
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 
-<!-- Favicon for Safari / iOS -->
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000">
 
-<!-- Optional: manifest for web apps -->
-<link rel="manifest" href="site.webmanifest">
-
-<!-- Optional: theme color for mobile browsers -->
-<meta name="theme-color" content="#0a2540">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
 <div id="header" class="invisible"></div>
 
   <main>
-    <!-- Hero -->
-    <section class="relative h-[60vh] flex items-center justify-center text-center bg-gray-800">
-      <img src="images/hero.jpg" alt="Offroad Bikes" class="absolute inset-0 w-full h-full object-cover">
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="relative z-10 text-white px-4">
-        <p class="text-lg md:text-4xl mb-10">Browse New Products</p>
-        <a href="products.html" class="bg-[#f97316] text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600">Shop Now</a>
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center bg-gray-900 overflow-hidden">
+      <img src="images/hero.jpg" alt="Off-road dirt bikes conquering challenging terrain" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+      <div class="relative z-10 text-white px-4 max-w-4xl mx-auto fade-in-on-scroll">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Premium Off-Road Parts</h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-200 font-medium">Engineered for Endurance. Built for Performance.</p>
+        <a href="products.html" class="btn-primary inline-block bg-[#a27200] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#8a6000] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+          Shop Now
+        </a>
       </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="max-w-6xl mx-auto px-4 py-16">
-      <h2 class="text-3xl font-bold mb-10 text-center">Featured Products</h2>
+    <!-- Featured Products Section -->
+    <section class="max-w-7xl mx-auto px-4 py-20">
+      <div class="text-center mb-12 fade-in-on-scroll">
+        <h2 class="text-4xl font-bold mb-4">Featured Products</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">Discover our most popular off-road parts designed to enhance your riding experience</p>
+      </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <a href="product-enduro-clutch.html" class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg">
-          <img src="images/enduro-clutch.jpg" alt="Enduro Clutch Spring" class="w-full aspect-square object-cover">
+        <a href="product-enduro-clutch.html" class="product-card bg-white shadow-md rounded-xl overflow-hidden group fade-in-on-scroll">
+          <div class="overflow-hidden">
+            <img src="images/enduro-clutch.jpg" alt="Enduro Clutch Spring for dirt bikes" class="w-full aspect-square object-cover" loading="lazy">
+          </div>
           <div class="p-6">
-            <h3 class="font-semibold text-xl mb-2">Enduro Clutch Spring</h3>
-            <p class="text-gray-600">Lighter spring for improved endurance and better clutch control.</p>
+            <h3 class="font-bold text-xl mb-3 group-hover:text-[#a27200] transition-colors">Enduro Clutch Spring</h3>
+            <p class="text-gray-600 mb-4">20% lighter clutch pull for reduced fatigue and improved control on long rides.</p>
+            <span class="inline-flex items-center text-[#a27200] font-semibold group-hover:gap-2 transition-all">
+              Learn More
+              <svg class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
           </div>
         </a>
-        <a href="product-map-switch.html" class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg">
-          <img src="images/map_switch_relocation_kit.jpg" alt="Map Switch Relocation" class="w-full aspect-square object-cover">
+        <a href="product-map-switch.html" class="product-card bg-white shadow-md rounded-xl overflow-hidden group fade-in-on-scroll">
+          <div class="overflow-hidden">
+            <img src="images/map_switch_relocation_kit.jpg" alt="Map Switch Relocation Kit" class="w-full aspect-square object-cover" loading="lazy">
+          </div>
           <div class="p-6">
-            <h3 class="font-semibold text-xl mb-2">Map Switch Relocation</h3>
-            <p class="text-gray-600">Relocates your expensive map switch under your handle bars and out of harms way.</p>
+            <h3 class="font-bold text-xl mb-3 group-hover:text-[#a27200] transition-colors">Map Switch Relocation Kit</h3>
+            <p class="text-gray-600 mb-4">Protect your expensive map switch by relocating it under the handlebars with premium hardware.</p>
+            <span class="inline-flex items-center text-[#a27200] font-semibold group-hover:gap-2 transition-all">
+              Learn More
+              <svg class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
           </div>
         </a>
-        <a href="product-victus-lever.html" class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg">
-          <img src="images/victus-lever.jpg" alt="Victus Lever" class="w-full aspect-square object-cover">
+        <a href="product-victus-lever.html" class="product-card bg-white shadow-md rounded-xl overflow-hidden group fade-in-on-scroll">
+          <div class="overflow-hidden">
+            <img src="images/victus-lever.jpg" alt="Victus Custom Lever" class="w-full aspect-square object-cover" loading="lazy">
+          </div>
           <div class="p-6">
-            <h3 class="font-semibold text-xl mb-2">Victus Lever</h3>
-            <p class="text-gray-600">Custom lever for reduced pull force and increased control. Specifically designed to pair with the Enduro Clutch Spring for optimal performance.</p>
+            <h3 class="font-bold text-xl mb-3 group-hover:text-[#a27200] transition-colors">Victus Lever</h3>
+            <p class="text-gray-600 mb-4">Precision-engineered lever designed to pair perfectly with the Enduro Clutch Spring.</p>
+            <span class="inline-flex items-center text-[#a27200] font-semibold group-hover:gap-2 transition-all">
+              Learn More
+              <svg class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
           </div>
         </a>
+      </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="bg-black text-white py-16 border-t border-b border-[#a27200]/20">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 text-center fade-in-on-scroll">
+          <div class="p-6">
+            <div class="text-[#a27200] mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Engineered Excellence</h3>
+            <p class="text-gray-300">Designed by mechanical engineers with decades of riding experience</p>
+          </div>
+          <div class="p-6">
+            <div class="text-[#a27200] mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Performance Proven</h3>
+            <p class="text-gray-300">Tested on the toughest trails to ensure reliability and durability</p>
+          </div>
+          <div class="p-6">
+            <div class="text-[#a27200] mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Premium Quality</h3>
+            <p class="text-gray-300">Built to exceed OEM standards with attention to every detail</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
 <div id="footer" class="invisible"></div>
 
+<!-- Common JavaScript -->
+<script src="js/common.js"></script>
 <script>
-  async function loadHTML(id, url) {
-    const container = document.getElementById(id);
-    const resp = await fetch(url);
-    const html = await resp.text();
-    container.innerHTML = html;
-    container.classList.remove('invisible'); // show content after loading
-  }
-
-  // Load header and footer
-  loadHTML('header', 'header.html').then(() => {
-    // Mobile menu toggle script after header loads
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if(menuBtn && mobileMenu){
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('flex');
-      });
-    }
-  });
-
-  loadHTML('footer', 'footer.html');
+  // Initialize page
+  initPage();
 </script>
-
-<style>
-  /* Prevent layout shift by reserving space */
-  #header, #footer {
-    transition: opacity 0.2s ease-in-out;
-  }
-</style>
-  <script>
-    const btn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  </script>
 
 </body>
 </html>

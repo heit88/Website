@@ -1,0 +1,31 @@
+/* MOTOVICTUS Brand Colors */
+:root {
+  /* Primary brand colors from logo */
+  --color-gold: #a27200;
+  --color-gold-dark: #8a6000;
+  --color-gold-light: #b88500;
+  --color-slate: #606e7a;
+  --color-slate-dark: #4a5560;
+  --color-slate-light: #758291;
+  --color-silver: #cccccc;
+  --color-silver-dark: #999999;
+
+  /* Dark theme elements */
+  --color-black: #000000;
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+  --color-gray-700: #374151;
+}
+
+/* Tailwind custom color classes */
+.text-brand-gold { color: var(--color-gold); }
+.bg-brand-gold { background-color: var(--color-gold); }
+.border-brand-gold { border-color: var(--color-gold); }
+.hover\:bg-brand-gold:hover { background-color: var(--color-gold); }
+.hover\:text-brand-gold:hover { color: var(--color-gold); }
+
+.text-brand-slate { color: var(--color-slate); }
+.bg-brand-slate { background-color: var(--color-slate); }
+.border-brand-slate { border-color: var(--color-slate); }
+
+.bg-brand-dark { background-color: var(--color-gray-900); }

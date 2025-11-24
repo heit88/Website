@@ -1,44 +1,93 @@
-<!-- product-enduro-clutch.html -->
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Enduro Clutch Spring — Motovictus</title>
+<title>Enduro Clutch Spring — MOTOVICTUS | 20% Lighter Clutch Pull</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Reduce clutch fatigue with the MOTOVICTUS Enduro Clutch Spring. 20% lighter pull, regressive spring rate, OEM fit. Compatible with KTM, Husqvarna, GasGas, and Beta bikes.">
+<meta name="keywords" content="enduro clutch spring, lighter clutch pull, dirt bike clutch, KTM clutch spring, Husqvarna clutch, Beta clutch, GasGas clutch">
+
+<!-- Open Graph Tags -->
+<meta property="og:title" content="Enduro Clutch Spring — MOTOVICTUS">
+<meta property="og:description" content="20% lighter clutch pull for reduced fatigue. Regressive spring design with OEM fit.">
+<meta property="og:image" content="https://motovictus.com/images/enduro-clutch.jpg">
+<meta property="og:url" content="https://motovictus.com/product-enduro-clutch.html">
+<meta property="og:type" content="product">
+
+<!-- Product Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Enduro Clutch Spring",
+  "brand": "MOTOVICTUS",
+  "description": "Lighter clutch spring that reduces clutch force by 20%. Provides true one-finger control without compromising throw distance.",
+  "image": "https://motovictus.com/images/enduro-clutch.jpg",
+  "offers": {
+    "@type": "Offer",
+    "price": "70",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+<!-- Fonts and Styles -->
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style> body { font-family: 'Inter', sans-serif; } </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Favicons -->
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#0a2540">
+<meta name="theme-color" content="#000000">
+
+<style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 <div id="header" class="invisible"></div>
 
-<main class="max-w-4xl mx-auto px-4 py-16">
+<main class="max-w-5xl mx-auto px-4 py-8">
+
+	<!-- Breadcrumb Navigation -->
+	<nav class="breadcrumb mb-6 fade-in-on-scroll" aria-label="Breadcrumb">
+		<a href="index.html" class="hover:text-[#a27200] transition-colors">Home</a>
+		<span class="breadcrumb-separator">/</span>
+		<a href="products.html" class="hover:text-[#a27200] transition-colors">Products</a>
+		<span class="breadcrumb-separator">/</span>
+		<span class="text-gray-900 font-medium">Enduro Clutch Spring</span>
+	</nav>
 
 	<!-- Product Image Carousel -->
-	<div class="relative overflow-hidden rounded-lg mb-6">
+	<div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 fade-in-on-scroll">
+	<div class="relative overflow-hidden">
 	<div id="carousel-track" class="flex transition-transform duration-300 ease-in-out">
-	  <img src="images/enduro-clutch.jpg" alt="Enduro Clutch Spring" class="w-full aspect-square object-cover flex-shrink-0">
-	  <img src="images/enduro-clutch-installed.jpg" alt="Enduro Clutch Installed" class="w-full aspect-square object-cover flex-shrink-0">
+	  <img src="images/enduro-clutch.jpg" alt="Enduro Clutch Spring product view" class="w-full aspect-square object-cover flex-shrink-0" loading="eager">
+	  <img src="images/enduro-clutch-installed.jpg" alt="Enduro Clutch Spring installed on motorcycle" class="w-full aspect-square object-cover flex-shrink-0" loading="lazy">
 	</div>
 
 	<!-- Carousel Buttons -->
-	<button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 left-2 bg-black/40 text-white rounded-full p-2 hover:bg-black/60">
-	  &#10094;
+	<button id="prev-btn" class="carousel-btn absolute top-1/2 -translate-y-1/2 left-3 bg-black/40 text-white rounded-full p-3 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-[#a27200]" aria-label="Previous image">
+	  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+	  </svg>
 	</button>
-	<button id="next-btn" class="absolute top-1/2 -translate-y-1/2 right-2 bg-black/40 text-white rounded-full p-2 hover:bg-black/60">
-	  &#10095;
+	<button id="next-btn" class="carousel-btn absolute top-1/2 -translate-y-1/2 right-3 bg-black/40 text-white rounded-full p-3 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-[#a27200]" aria-label="Next image">
+	  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+	  </svg>
 	</button>
 
 	<!-- Dots -->
-	<div id="carousel-dots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">
+	<div id="carousel-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
 	  <span class="dot w-3 h-3 bg-white/70 rounded-full cursor-pointer"></span>
 	  <span class="dot w-3 h-3 bg-white/30 rounded-full cursor-pointer"></span>
+	</div>
 	</div>
 	</div>
 	
@@ -86,43 +135,82 @@
 	});
 	</script>
   
-  <!-- Title and Summary -->
-  <h1 class="text-3xl font-bold mb-2">Enduro Clutch Spring</h1>
-  <p class="text-lg mb-6">
-    The Enduro Clutch Spring provides a lighter clutch pull, smoother clutch feel, and improved modulation.
-  </p>
+  <!-- Product Details Card -->
+  <div class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
+    <div class="flex items-start justify-between mb-4">
+      <div>
+        <h1 class="text-4xl font-bold mb-3">Enduro Clutch Spring</h1>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">In Stock</span>
+          <span class="bg-[#a27200] text-white px-3 py-1 rounded-full text-sm font-semibold">Patent Pending</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-4xl font-bold text-[#a27200]">$69.99</p>
+        <p class="text-gray-600 text-sm">Free shipping</p>
+      </div>
+    </div>
 
-  <!-- Buy Button -->
-  <!-- Buy Options -->
-  <div class="mb-6">
-    <label for="buyOptions" class="block font-semibold mb-2">Choose your option:</label>
-    <select id="buyOptions" class="border border-gray-300 rounded px-4 py-2 w-full max-w-xs">
-      <option value="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00">Brembo Clutch</option>
-      <option value="https://buy.stripe.com/aFacN66zndDXeYydpJg7e02">Braktec Clutch</option>
-    </select>
+    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+      The Enduro Clutch Spring provides a lighter clutch pull, smoother clutch feel, and improved modulation for reduced arm pump and better control.
+    </p>
+
+    <!-- Buy Options -->
+    <div class="mb-6">
+      <label for="buyOptions" class="block font-semibold mb-3 text-gray-800">Select your clutch type:</label>
+      <select id="buyOptions" class="border-2 border-gray-300 rounded-lg px-4 py-3 w-full focus:border-[#a27200] focus:ring-2 focus:ring-[#a27200]/20 transition-all">
+        <option value="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00">Brembo Clutch</option>
+        <option value="https://buy.stripe.com/aFacN66zndDXeYydpJg7e02">Braktec Clutch</option>
+      </select>
+    </div>
+
+    <!-- Buy Button -->
+    <a id="buyNowBtn"
+       href="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00"
+       target="_blank"
+       class="btn-primary inline-block bg-[#a27200] hover:bg-[#8a6000] text-white px-8 py-4 rounded-lg font-bold text-lg w-full text-center shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02]">
+       Add to Cart — $69.99
+    </a>
+
+    <script>
+      const buySelect = document.getElementById('buyOptions');
+      const buyBtn = document.getElementById('buyNowBtn');
+
+      buySelect.addEventListener('change', () => {
+        buyBtn.href = buySelect.value;
+      });
+    </script>
+
+    <!-- Trust Signals -->
+    <div class="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
+      <div class="text-center">
+        <svg class="w-8 h-8 mx-auto mb-2 text-[#a27200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <p class="text-xs text-gray-600 font-medium">OEM Fitment</p>
+      </div>
+      <div class="text-center">
+        <svg class="w-8 h-8 mx-auto mb-2 text-[#a27200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-xs text-gray-600 font-medium">Fast Shipping</p>
+      </div>
+      <div class="text-center">
+        <svg class="w-8 h-8 mx-auto mb-2 text-[#a27200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        <p class="text-xs text-gray-600 font-medium">Premium Quality</p>
+      </div>
+    </div>
   </div>
-
-  <!-- Buy Button -->
-  <a id="buyNowBtn"
-     href="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00"
-     target="_blank"
-     class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-bold mb-10">
-     Buy Now - $70
-  </a>
-
-  <script>
-    const buySelect = document.getElementById('buyOptions');
-    const buyBtn = document.getElementById('buyNowBtn');
-
-    buySelect.addEventListener('change', () => {
-      buyBtn.href = buySelect.value; // Update button link
-    });
-  </script>
 
 
   <!-- Overview Section -->
-  <section id="overview" class="mb-10">
-    <h2 class="text-2xl font-bold mb-3 border-b border-orange-500 pb-1">Overview</h2>
+  <section id="overview" class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
+    <h2 class="text-3xl font-bold mb-4 text-gray-900 flex items-center">
+      <span class="w-1 h-8 bg-[#f97316] mr-3 rounded"></span>
+      Overview
+    </h2>
     <p class="mb-4">
       The Enduro Clutch Spring is designed for riders who want a noticeably lighter clutch pull and smoother engagement without sacrificing performance or durability.
     </p>
@@ -135,8 +223,11 @@
   </section>
 
   <!-- Key Features -->
-  <section id="key-features" class="mb-10">
-    <h2 class="text-2xl font-bold mb-3 border-b border-orange-500 pb-1">Key Features</h2>
+  <section id="key-features" class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
+    <h2 class="text-3xl font-bold mb-4 text-gray-900 flex items-center">
+      <span class="w-1 h-8 bg-[#f97316] mr-3 rounded"></span>
+      Key Features
+    </h2>
      <p class="mb-4">
       Reduce arm pump, increase control, and make every ride more enjoyable. The Enduro Clutch Spring brings factory-grade engineering to real-world trails where comfort and consistency matter most.
     </p>
@@ -149,8 +240,11 @@
   </section>
 
   <!-- Fitment -->
-  <section id="fitment" class="mb-10">
-    <h2 class="text-2xl font-bold mb-3 border-b border-orange-500 pb-1">Fitment</h2>
+  <section id="fitment" class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
+    <h2 class="text-3xl font-bold mb-4 text-gray-900 flex items-center">
+      <span class="w-1 h-8 bg-[#f97316] mr-3 rounded"></span>
+      Fitment
+    </h2>
 	<p class="mb-4"> This new spring will change the engangement point of the clutch. Some riders may want additional adjustment. Selecting the appropriate master cylinder will change which pin will be included with the spring.
 	This will allow for clutch engagement to match with a stock lever. Other levers may have enough adjustment or move the engagement point of the clutch and not require the installation of a new pin.
 	See <a href="https://motovictus.com/instructions/enduro-clutch-instructions.pdf" target="_blank" class="text-orange-600 hover:underline">instructions</a> for more details. </p>
@@ -167,8 +261,8 @@
   </section>
 
   <!-- Disclaimer -->
-  <section id="disclaimer" class="text-sm text-gray-600 border-t border-gray-300 pt-4">
-    <h2 class="text-base font-semibold mb-2 text-gray-700">Disclaimer</h2>
+  <section id="disclaimer" class="bg-gray-100 rounded-xl p-6 border-l-4 border-[#a27200] fade-in-on-scroll">
+    <h2 class="text-lg font-bold mb-2 text-gray-800">Important Information</h2>
     <p>
       This product changes the characteristics of clutch engagement. Take time to ride and familiarize yourself with the new spring performance. 
       If you experience any issues, contact Motovictus at 
@@ -179,34 +273,12 @@
 
 <div id="footer" class="invisible"></div>
 
+<!-- Common JavaScript -->
+<script src="js/common.js"></script>
 <script>
-  async function loadHTML(id, url) {
-    const container = document.getElementById(id);
-    const resp = await fetch(url);
-    const html = await resp.text();
-    container.innerHTML = html;
-    container.classList.remove('invisible');
-  }
-
-  loadHTML('header', 'header.html').then(() => {
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('flex');
-      });
-    }
-  });
-
-  loadHTML('footer', 'footer.html');
+  // Initialize page
+  initPage();
 </script>
-
-<style>
-  #header, #footer {
-    transition: opacity 0.2s ease-in-out;
-  }
-</style>
 
 </body>
 </html>

@@ -1,38 +1,47 @@
-<header class="bg-[#0a2540] text-white sticky top-0 z-50">
+<header class="bg-black text-white sticky top-0 z-50 shadow-xl border-b-2 border-[#a27200]">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between p-4">
 
     <!-- Left: Logo + Centered Motto -->
     <div class="flex flex-col items-center md:items-start text-center md:text-left">
-      <a href="index.html" class="flex items-center space-x-3">
-        <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md">
-        <span class="text-2xl font-bold">MOTOVICTUS</span>
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md transition-transform group-hover:scale-105">
+        <span class="text-2xl font-bold transition-colors group-hover:text-[#a27200]">MOTOVICTUS</span>
       </a>
 
-      <p class="text-sm md:text-base text-orange-600 italic tracking-wide mt-1">
+      <p class="text-sm md:text-base text-[#a27200] italic tracking-wide mt-1 font-medium">
         Ride Longer. Ride Smarter.
       </p>
     </div>
 
     <!-- Hamburger Button -->
-    <button class="md:hidden flex flex-col space-y-1 mt-3 md:mt-0" id="menu-btn">
-      <span class="w-6 h-0.5 bg-white"></span>
-      <span class="w-6 h-0.5 bg-white"></span>
-      <span class="w-6 h-0.5 bg-white"></span>
+    <button class="md:hidden flex flex-col space-y-1 mt-3 md:mt-0 focus:outline-none focus:ring-2 focus:ring-[#a27200] rounded p-2" id="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
     </button>
 
     <!-- Desktop Menu -->
-    <nav id="menu" class="hidden md:flex space-x-6 text-lg font-semibold mt-3 md:mt-0">
-      <a href="products.html" class="hover:text-[#f97316]">Products</a>
-      <a href="instructions.html" class="hover:text-[#f97316]">Instructions</a>
-      <a href="about.html" class="hover:text-[#f97316]">About Us</a>
+    <nav id="menu" class="hidden md:flex space-x-8 text-lg font-semibold mt-3 md:mt-0">
+      <a href="products.html" class="hover:text-[#a27200] transition-colors relative group">
+        Products
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span>
+      </a>
+      <a href="instructions.html" class="hover:text-[#a27200] transition-colors relative group">
+        Instructions
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span>
+      </a>
+      <a href="about.html" class="hover:text-[#a27200] transition-colors relative group">
+        About Us
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span>
+      </a>
     </nav>
   </div>
 
   <!-- Mobile Menu -->
-  <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-[#0a2540] p-4 md:hidden">
-    <a href="products.html" class="hover:text-[#f97316] block">Products</a>
-    <a href="instructions.html" class="hover:text-[#f97316] block">Instructions</a>
-    <a href="about.html" class="hover:text-[#f97316] block">About Us</a>
+  <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-[#1a1a1a] p-4 md:hidden border-t border-[#a27200]/30">
+    <a href="products.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Products</a>
+    <a href="instructions.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Instructions</a>
+    <a href="about.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">About Us</a>
   </nav>
 </header>
 
@@ -40,8 +49,12 @@
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    mobileMenu.classList.toggle('flex');
-  });
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+  }
 </script>

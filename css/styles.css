@@ -1,0 +1,233 @@
+/* MOTOVICTUS Custom Styles */
+
+/* Brand Colors */
+:root {
+  --color-gold: #a27200;
+  --color-gold-dark: #8a6000;
+  --color-slate: #606e7a;
+  --color-slate-dark: #4a5560;
+  --color-silver: #cccccc;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade-in animation on scroll */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth page load */
+body {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Enhanced button hover effects */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Card hover effects */
+.product-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Loading animation */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.breadcrumb a {
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: #f97316;
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+}
+
+/* Hero section parallax effect */
+.hero-parallax {
+  transform: translateY(var(--scroll-offset, 0));
+}
+
+/* Improved form styling */
+select,
+input[type="text"],
+input[type="email"],
+textarea {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Prevent layout shift */
+#header, #footer {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Image loading optimization */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Skeleton loader for images */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Enhanced carousel buttons */
+.carousel-btn {
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+}
+
+.carousel-btn:active {
+  transform: scale(0.98);
+}
+
+/* Improved dot indicators */
+.dot {
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+/* Section dividers */
+.section-divider {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .product-card:hover {
+    transform: none;
+  }
+
+  .product-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
