@@ -176,17 +176,16 @@ img {
 
 /* Enhanced carousel buttons */
 .carousel-btn {
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
   backdrop-filter: blur(4px);
 }
 
 .carousel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-  transform: scale(1.05);
+  background-color: rgba(162, 114, 0, 0.8);
 }
 
 .carousel-btn:active {
-  transform: scale(0.98);
+  background-color: rgba(162, 114, 0, 1);
 }
 
 /* Improved dot indicators */
