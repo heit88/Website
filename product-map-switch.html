@@ -63,10 +63,79 @@
 		<span class="text-gray-900 font-medium">Map Switch Relocation Kit</span>
 	</nav>
 
-	<!-- Product Image -->
+	<!-- Product Image Carousel -->
 	<div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 fade-in-on-scroll max-w-2xl mx-auto">
-		<img src="images/map_switch_relocation_kit.jpg" alt="Map Switch Relocation Kit" class="w-full aspect-square object-cover" loading="eager">
+	<div class="relative overflow-hidden">
+	<div id="carousel-track" class="flex transition-transform duration-300 ease-in-out">
+	  <img src="images/map_switch_relocation_kit.jpg" alt="Map Switch Relocation Kit product view" class="w-full aspect-square object-cover flex-shrink-0" loading="eager">
+	  <img src="images/map_switch_relocation_kit_installed.jpg" alt="Map Switch Relocation Kit installed on motorcycle" class="w-full aspect-square object-cover flex-shrink-0" loading="lazy">
 	</div>
+
+	<!-- Navigation Arrows -->
+	<button id="prevBtn" class="carousel-btn absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#a27200]/80 text-white p-3 rounded-full transition-colors" aria-label="Previous image">
+	  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+	  </svg>
+	</button>
+	<button id="nextBtn" class="carousel-btn absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#a27200]/80 text-white p-3 rounded-full transition-colors" aria-label="Next image">
+	  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+	  </svg>
+	</button>
+
+	<!-- Dot Indicators -->
+	<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+	  <button class="dot w-3 h-3 rounded-full bg-white/80 transition-all" data-index="0" aria-label="Go to image 1"></button>
+	  <button class="dot w-3 h-3 rounded-full bg-white/50 transition-all" data-index="1" aria-label="Go to image 2"></button>
+	</div>
+	</div>
+	</div>
+
+	<script>
+	  // Image Carousel
+	  const track = document.getElementById('carousel-track');
+	  const prevBtn = document.getElementById('prevBtn');
+	  const nextBtn = document.getElementById('nextBtn');
+	  const dots = document.querySelectorAll('.dot');
+	  let currentIndex = 0;
+	  const totalImages = 2;
+
+	  function updateCarousel() {
+	    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+	    dots.forEach((dot, index) => {
+	      if (index === currentIndex) {
+	        dot.classList.remove('bg-white/50');
+	        dot.classList.add('bg-white/80', 'scale-110');
+	      } else {
+	        dot.classList.remove('bg-white/80', 'scale-110');
+	        dot.classList.add('bg-white/50');
+	      }
+	    });
+	  }
+
+	  prevBtn.addEventListener('click', () => {
+	    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+	    updateCarousel();
+	  });
+
+	  nextBtn.addEventListener('click', () => {
+	    currentIndex = (currentIndex + 1) % totalImages;
+	    updateCarousel();
+	  });
+
+	  dots.forEach(dot => {
+	    dot.addEventListener('click', () => {
+	      currentIndex = parseInt(dot.dataset.index);
+	      updateCarousel();
+	    });
+	  });
+
+	  // Keyboard navigation
+	  document.addEventListener('keydown', (e) => {
+	    if (e.key === 'ArrowLeft') prevBtn.click();
+	    if (e.key === 'ArrowRight') nextBtn.click();
+	  });
+	</script>
 
 	<!-- Product Details Card -->
 	<div class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
