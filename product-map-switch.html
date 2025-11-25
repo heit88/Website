@@ -141,14 +141,14 @@
 	<div class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
 		<div class="flex items-start justify-between mb-4">
 			<div>
-				<h1 class="text-4xl font-bold mb-3">Map Switch Relocation Kit</h1>
+				<h1 class="text-4xl font-bold mb-3">Map Switch Relocation</h1>
 				<div class="flex items-center gap-2 mb-4">
 					<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">In Stock</span>
 					<span class="bg-[#a27200] text-white px-3 py-1 rounded-full text-sm font-semibold">Patent Pending</span>
 				</div>
 			</div>
 			<div class="text-right">
-				<p class="text-4xl font-bold text-[#a27200]">$29.99</p>
+				<p class="text-4xl font-bold text-[#a27200]">$59.99</p>
 				<p class="text-gray-600 text-sm">Free shipping (Continental US)</p>
 			</div>
 		</div>
@@ -161,29 +161,35 @@
 		<div class="mb-6">
 			<label for="buyOptions" class="block font-semibold mb-3 text-gray-800">Choose your option:</label>
 			<select id="buyOptions" class="border-2 border-gray-300 rounded-lg px-4 py-3 w-full focus:border-[#a27200] focus:ring-2 focus:ring-[#a27200]/20 transition-all">
-				<option value="https://buy.stripe.com/example-fullkit">Full Kit — Switch Mount + 10 mm Bar Risers ($59.99)</option>
-				<option value="https://buy.stripe.com/example-mountonly">Steering Stem Bolt Only ($29.99)</option>
+				<option value="https://buy.stripe.com/dRmfZicXL2ZjeYy99tg7e04" selected>Full Kit — Switch Mount + 10 mm Bar Risers ($59.99)</option>
+				<option value="https://buy.stripe.com/8x25kE4rf2Zj17IfxRg7e03">Steering Stem Bolt Only ($29.99)</option>
 			</select>
 		</div>
 
 		<!-- Buy Button -->
 		<a id="buyNowBtn"
-		   href="https://buy.stripe.com/example-mountonly"
+		   href="https://buy.stripe.com/dRmfZicXL2ZjeYy99tg7e04"
 		   target="_blank"
 		   class="btn-primary inline-block bg-[#a27200] hover:bg-[#8a6000] text-white px-8 py-4 rounded-lg font-bold text-lg w-full text-center shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02]">
-		   Add to Cart — $29.99
+		   Add to Cart — $59.99
 		</a>
 
 		<script>
 			const buySelect = document.getElementById('buyOptions');
 			const buyBtn = document.getElementById('buyNowBtn');
+			const priceDisplay = document.querySelector('.text-right .text-4xl');
 
 			buySelect.addEventListener('change', () => {
 				const selected = buySelect.selectedOptions[0].text;
 				buyBtn.href = buySelect.value;
-				buyBtn.textContent = selected.includes('Bolt Only')
-					? 'Add to Cart — $29.99'
-					: 'Add to Cart — $59.99';
+
+				if (selected.includes('Bolt Only')) {
+					buyBtn.textContent = 'Add to Cart — $29.99';
+					priceDisplay.textContent = '$29.99';
+				} else {
+					buyBtn.textContent = 'Add to Cart — $59.99';
+					priceDisplay.textContent = '$59.99';
+				}
 			});
 		</script>
 
