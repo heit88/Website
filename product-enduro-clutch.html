@@ -27,7 +27,7 @@
   "image": "https://motovictus.com/images/enduro-clutch.jpg",
   "offers": {
     "@type": "Offer",
-    "price": "70",
+    "price": "64.95",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock"
   }
@@ -140,13 +140,14 @@
     <div class="flex items-start justify-between mb-4">
       <div>
         <h1 class="text-4xl font-bold mb-3">Enduro Clutch Spring</h1>
+        <p class="text-gray-600 mb-3">Part# <span id="partNumber">11-00000</span></p>
         <div class="flex items-center gap-2 mb-4">
           <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">In Stock</span>
           <span class="bg-[#a27200] text-white px-3 py-1 rounded-full text-sm font-semibold">Patent Pending</span>
         </div>
       </div>
       <div class="text-right">
-        <p class="text-4xl font-bold text-[#a27200]">$69.99</p>
+        <p class="text-4xl font-bold text-[#a27200]">$64.95</p>
         <p class="text-gray-600 text-sm">Free shipping (Continental US)</p>
       </div>
     </div>
@@ -159,9 +160,9 @@
     <div class="mb-6">
       <label for="buyOptions" class="block font-semibold mb-3 text-gray-800">Select your clutch type:</label>
       <select id="buyOptions" class="border-2 border-gray-300 rounded-lg px-4 py-3 w-full focus:border-[#a27200] focus:ring-2 focus:ring-[#a27200]/20 transition-all">
-        <option value="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00">Brembo Clutch</option>
-        <option value="https://buy.stripe.com/aFacN66zndDXeYydpJg7e02">Braktec Clutch</option>
-        <option value="https://buy.stripe.com/aFa6oIe1P1VfbMm4Tdg7e05">Magura Clutch</option>
+        <option value="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00" data-part="11-00000">Brembo Clutch</option>
+        <option value="https://buy.stripe.com/aFacN66zndDXeYydpJg7e02" data-part="11-00001">Braktec Clutch</option>
+        <option value="https://buy.stripe.com/aFa6oIe1P1VfbMm4Tdg7e05" data-part="11-00002">Magura Clutch</option>
       </select>
     </div>
 
@@ -170,15 +171,18 @@
        href="https://buy.stripe.com/9B66oI5vjgQ92bMetNg7e00"
        target="_blank"
        class="btn-primary inline-block bg-[#a27200] hover:bg-[#8a6000] text-white px-8 py-4 rounded-lg font-bold text-lg w-full text-center shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02]">
-       Add to Cart — $69.99
+       Add to Cart — $64.95
     </a>
 
     <script>
       const buySelect = document.getElementById('buyOptions');
       const buyBtn = document.getElementById('buyNowBtn');
+      const partNumber = document.getElementById('partNumber');
 
       buySelect.addEventListener('change', () => {
         buyBtn.href = buySelect.value;
+        const selectedOption = buySelect.options[buySelect.selectedIndex];
+        partNumber.textContent = selectedOption.dataset.part;
       });
     </script>
 
@@ -259,6 +263,24 @@
       <li><strong>Beta</strong> 2022+ 250/300 2-Stroke Models</li>
       <li><strong>Beta</strong> 2022+ 350/390 4-Stroke Models</li>
     </ul>
+  </section>
+
+  <!-- Warranty -->
+  <section id="warranty" class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
+    <h2 class="text-3xl font-bold mb-4 text-gray-900 flex items-center">
+      <span class="w-1 h-8 bg-[#a27200] mr-3 rounded"></span>
+      Limited Lifetime Warranty
+    </h2>
+    <p class="mb-4">
+      MOTOVICTUS products are backed by a limited lifetime warranty against defects in materials and workmanship for the original purchaser.
+    </p>
+    <p class="mb-4">
+      This warranty covers manufacturing defects under normal use and does not cover damage from accidents, improper installation, modifications, or normal wear and tear. The warranty is non-transferable and applies only to the original purchaser with proof of purchase.
+    </p>
+    <p>
+      For warranty claims or questions, please contact us at
+      <a href="mailto:support@motovictus.com" class="text-[#a27200] hover:underline">support@motovictus.com</a>.
+    </p>
   </section>
 
   <!-- Disclaimer -->
