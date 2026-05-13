@@ -1,3 +1,9 @@
+<!--
+  This file is now inlined directly into each page for SEO (Googlebot sees
+  the navigation in the initial HTML, not after a JS fetch). Keep this file
+  in sync as the canonical source — copy changes into every *.html page that
+  uses the same header block.
+-->
 <header class="bg-black text-white sticky top-0 z-50 shadow-xl border-b-2 border-[#a27200]">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between p-4">
 
@@ -30,6 +36,10 @@
         Instructions
         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span>
       </a>
+      <a href="blog/" class="hover:text-[#a27200] transition-colors relative group">
+        Blog
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span>
+      </a>
       <a href="about.html" class="hover:text-[#a27200] transition-colors relative group">
         About Us
         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span>
@@ -41,20 +51,22 @@
   <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-[#1a1a1a] p-4 md:hidden border-t border-[#a27200]/30">
     <a href="products.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Products</a>
     <a href="instructions.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Instructions</a>
+    <a href="blog/" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Blog</a>
     <a href="about.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">About Us</a>
   </nav>
+
+  <script>
+    (function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          menuBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('flex');
+        });
+      }
+    })();
+  </script>
 </header>
-
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-    });
-  }
-</script>

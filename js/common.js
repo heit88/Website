@@ -1,34 +1,6 @@
 // Common JavaScript utilities for MOTOVICTUS website
-
-// Load header and footer HTML
-async function loadHTML(id, url) {
-  const container = document.getElementById(id);
-  const resp = await fetch(url);
-  const html = await resp.text();
-  container.innerHTML = html;
-  container.classList.remove('invisible');
-}
-
-// Initialize mobile menu toggle
-function initMobileMenu() {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-    });
-  }
-}
-
-// Initialize page with header and footer
-function initPage() {
-  loadHTML('header', 'header.html').then(() => {
-    initMobileMenu();
-  });
-  loadHTML('footer', 'footer.html');
-}
+// Header and footer are inlined directly into each page for SEO.
+// Page-specific scripts (mobile menu, footer year) run inline alongside the markup.
 
 // Add fade-in animation on scroll
 function initScrollAnimations() {
@@ -66,6 +38,9 @@ function initSmoothScroll() {
     });
   });
 }
+
+// Back-compat no-op so any old <script>initPage()</script> blocks don't error.
+function initPage() {}
 
 // Initialize common features when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {

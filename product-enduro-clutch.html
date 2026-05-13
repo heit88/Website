@@ -16,6 +16,9 @@
 <meta property="og:url" content="https://motovictus.com/product-enduro-clutch.html">
 <meta property="og:type" content="product">
 
+<!-- Canonical URL -->
+<link rel="canonical" href="https://motovictus.com/product-enduro-clutch.html">
+
 <!-- Product Schema Markup -->
 <script type="application/ld+json">
 {
@@ -34,6 +37,72 @@
 }
 </script>
 
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the Enduro Clutch Spring work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Enduro Clutch Spring reduces clutch effort in three main ways. (1) This spring is lighter than the OEM springs. (2) This spring is more regressive than the OEM springs. It creates maximum load near the flat position. When pushed past flat from actuating the clutch, the force of the spring actually goes down instead of up. (3) The reduction in clamping force reduces the dead zone of the clutch. The dead zone is the movement you have to pull the clutch in before it will start to disengage. By removing the excess margin in the clutch, the total distance the clutch needs to be pulled is reduced. All together this means a lighter pull, over a shorter distance, that gets easier as you pull. Combined, this has a dramatic effect on the amount of effort to control the clutch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If this is better, why didn't the OEM do it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OEMs have to design to the severe edge cases. A professional rider, at sea level, at full throttle, with an overheating bike, probably needs all of the holding power of the OEM clutch. If you are riding at higher elevations, are meticulous about your maintenance, or don't routinely hit the throttle lock, then you aren't using the full capability of your OEM clutch. However, your finger is having to pull that clutch as if you are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my clutch slip?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Due to the margin in the OEM clutches this clutch spring installed in the lightest position is enough to hold the peak torque of all listed bikes. This has been tested in static and dynamic environments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How else does this change my clutch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With the spring being lighter the friction zone of the clutch engagement becomes slightly wider. This is very helpful in hard enduro riding where clutch control is key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this with aftermarket clutch components like a 9mm master cylinder or aftermarket lever?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This has been tested with many aftermarket combinations with no issues. The main consideration is the change in the engagement point. We provide a pushrod that goes between your lever and master cylinder. With an OEM lever this recenters your engagement point in the lever's adjustment. Aftermarket levers typically have more adjustment and this pin may not be needed. We have also found that with a 9mm Brembo master cylinder the provided pin is not needed at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does installation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is super simple. Just lay the bike on its side and take out some bolts. We have detailed instructions linked in the installation PDF on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which preload position should I start with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The spring ships with three preload positions: lightest, medium, and heaviest. Most riders should start in the middle position. Aggressive riders, or those who routinely ride at sea level, can stay on the heaviest. Weekend trail riders and high-altitude riders can drop to the lightest position immediately."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Fonts and Styles -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -46,11 +115,56 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#000000">
 
-<style> body { font-family: 'Inter', sans-serif; } </style>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+</style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
-<div id="header" class="invisible"></div>
+<header class="bg-black text-white sticky top-0 z-50 shadow-xl border-b-2 border-[#a27200]">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between p-4">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md transition-transform group-hover:scale-105">
+        <span class="text-2xl font-bold transition-colors group-hover:text-[#a27200]">MOTOVICTUS</span>
+      </a>
+      <p class="text-sm md:text-base text-[#a27200] italic tracking-wide mt-1 font-medium">Ride Longer. Ride Smarter.</p>
+    </div>
+    <button class="md:hidden flex flex-col space-y-1 mt-3 md:mt-0 focus:outline-none focus:ring-2 focus:ring-[#a27200] rounded p-2" id="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    </button>
+    <nav id="menu" class="hidden md:flex space-x-8 text-lg font-semibold mt-3 md:mt-0">
+      <a href="products.html" class="hover:text-[#a27200] transition-colors relative group">Products<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span></a>
+      <a href="instructions.html" class="hover:text-[#a27200] transition-colors relative group">Instructions<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span></a>
+      <a href="blog/" class="hover:text-[#a27200] transition-colors relative group">Blog<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span></a>
+      <a href="about.html" class="hover:text-[#a27200] transition-colors relative group">About Us<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a27200] transition-all group-hover:w-full"></span></a>
+    </nav>
+  </div>
+  <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-[#1a1a1a] p-4 md:hidden border-t border-[#a27200]/30">
+    <a href="products.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Products</a>
+    <a href="instructions.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Instructions</a>
+    <a href="blog/" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Blog</a>
+    <a href="about.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">About Us</a>
+  </nav>
+  <script>
+    (function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          menuBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('flex');
+        });
+      }
+    })();
+  </script>
+</header>
 
 <main class="max-w-5xl mx-auto px-4 py-8">
 
@@ -269,6 +383,110 @@
     </ul>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
+    <h2 class="text-3xl font-bold mb-6 text-gray-900 flex items-center">
+      <span class="w-1 h-8 bg-[#a27200] mr-3 rounded"></span>
+      Frequently Asked Questions
+    </h2>
+
+    <details class="group bg-gray-50 rounded-lg border border-gray-200 mb-3">
+      <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 transition-colors rounded-lg">
+        <span class="font-semibold text-gray-900 pr-4">How does the Enduro Clutch Spring work?</span>
+        <svg class="w-5 h-5 text-[#a27200] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 text-gray-700 leading-relaxed">
+        <p class="mb-3">The Enduro Clutch Spring reduces clutch effort in three main ways:</p>
+        <ol class="list-decimal pl-6 space-y-2 mb-3">
+          <li>This spring is lighter than the OEM springs.</li>
+          <li>This spring is more regressive than the OEM springs. It creates maximum load near the flat position. When pushed past flat from actuating the clutch, the force of the spring actually goes down instead of up.</li>
+          <li>The reduction in clamping force reduces the dead zone of the clutch. The dead zone is the movement you have to pull the clutch in before it will start to disengage. By removing the excess margin in the clutch, the total distance the clutch needs to be pulled is reduced.</li>
+        </ol>
+        <p class="mb-4">All together this means a lighter pull, over a shorter distance, that gets easier as you pull. Combined, this has a dramatic effect on the amount of effort to control the clutch and greatly reduces arm pump.</p>
+
+        <figure class="mt-4">
+          <div class="grid md:grid-cols-2 gap-4 mb-3">
+            <div>
+              <img src="images/OEM_clutch_overlay.png" alt="OEM clutch lever zones: large dead zone, small friction zone" class="w-full rounded-lg border border-gray-200">
+              <p class="text-center text-sm font-semibold text-gray-700 mt-2">OEM spring</p>
+            </div>
+            <div>
+              <img src="images/Motovictus_clutch_overlay.png" alt="Enduro Clutch Spring zones: dead zone shrinks, friction zone widens" class="w-full rounded-lg border border-gray-200">
+              <p class="text-center text-sm font-semibold text-gray-700 mt-2">Enduro Clutch Spring</p>
+            </div>
+          </div>
+          <figcaption class="text-sm text-gray-600 leading-relaxed">
+            Lever-travel zones overlaid on the same clutch lever. With the Enduro Clutch Spring the dead zone shrinks and the friction zone widens, so the useful part of the pull happens earlier and over a wider band.
+          </figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="group bg-gray-50 rounded-lg border border-gray-200 mb-3">
+      <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 transition-colors rounded-lg">
+        <span class="font-semibold text-gray-900 pr-4">If this is better, why didn't the OEM do it?</span>
+        <svg class="w-5 h-5 text-[#a27200] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 text-gray-700 leading-relaxed">
+        <p>OEMs have to design to the severe edge cases. A professional rider, at sea level, at full throttle, with an overheating bike, probably needs all of the holding power of the OEM clutch. If you are riding at higher elevations, are meticulous about your maintenance, or don't routinely hit the throttle lock, then you aren't using the full capability of your OEM clutch. However, your finger is having to pull that clutch as if you are.</p>
+      </div>
+    </details>
+
+    <details class="group bg-gray-50 rounded-lg border border-gray-200 mb-3">
+      <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 transition-colors rounded-lg">
+        <span class="font-semibold text-gray-900 pr-4">Will my clutch slip?</span>
+        <svg class="w-5 h-5 text-[#a27200] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 text-gray-700 leading-relaxed">
+        <p>Due to the margin in the OEM clutches this clutch spring installed in the lightest position is enough to hold the peak torque of all listed bikes. This has been tested in static and dynamic environments.</p>
+      </div>
+    </details>
+
+    <details class="group bg-gray-50 rounded-lg border border-gray-200 mb-3">
+      <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 transition-colors rounded-lg">
+        <span class="font-semibold text-gray-900 pr-4">How else does this change my clutch?</span>
+        <svg class="w-5 h-5 text-[#a27200] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 text-gray-700 leading-relaxed">
+        <p>With the spring being lighter the friction zone of the clutch engagement becomes slightly wider. This is very helpful in hard enduro riding where clutch control is key.</p>
+      </div>
+    </details>
+
+    <details class="group bg-gray-50 rounded-lg border border-gray-200 mb-3">
+      <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 transition-colors rounded-lg">
+        <span class="font-semibold text-gray-900 pr-4">Can I use this with aftermarket clutch components like a 9mm master cylinder or aftermarket lever?</span>
+        <svg class="w-5 h-5 text-[#a27200] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 text-gray-700 leading-relaxed">
+        <p class="mb-3">Yes. This has been tested with many aftermarket combinations with no issues. The main consideration is the change in the engagement point.</p>
+        <p class="mb-3">We provide a pushrod that goes between your lever and master cylinder. With an OEM lever this recenters your engagement point in the lever's adjustment. Aftermarket levers typically have more adjustment and this pin may not be needed.</p>
+        <p>We have also found that with a 9mm Brembo master cylinder the provided pin is not needed at all.</p>
+      </div>
+    </details>
+
+    <details class="group bg-gray-50 rounded-lg border border-gray-200 mb-3">
+      <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 transition-colors rounded-lg">
+        <span class="font-semibold text-gray-900 pr-4">How long does installation take?</span>
+        <svg class="w-5 h-5 text-[#a27200] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 text-gray-700 leading-relaxed">
+        <p>It is super simple. Just lay the bike on its side and take out some bolts. We have detailed instructions linked <a href="instructions/enduro-clutch-instructions.pdf" target="_blank" class="text-[#a27200] hover:underline font-semibold">here</a>.</p>
+      </div>
+    </details>
+  </section>
+
   <!-- Warranty -->
   <section id="warranty" class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in-on-scroll">
     <h2 class="text-3xl font-bold mb-4 text-gray-900 flex items-center">
@@ -298,14 +516,41 @@
   </section>
 </main>
 
-<div id="footer" class="invisible"></div>
+<footer class="bg-black text-white py-12 mt-16 border-t-2 border-[#a27200]">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div class="text-center md:text-left">
+        <h3 class="text-lg font-bold mb-3 text-[#a27200]">Contact</h3>
+        <p class="text-gray-300 mb-2"><a href="mailto:info@motovictus.com" class="hover:text-[#a27200] transition-colors underline">info@motovictus.com</a></p>
+        <p class="text-gray-300">Salt Lake City, UT</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-lg font-bold mb-3 text-[#a27200]">Quick Links</h3>
+        <nav class="flex flex-col space-y-2">
+          <a href="products.html" class="text-gray-300 hover:text-[#a27200] transition-colors">Products</a>
+          <a href="instructions.html" class="text-gray-300 hover:text-[#a27200] transition-colors">Instructions</a>
+          <a href="blog/" class="text-gray-300 hover:text-[#a27200] transition-colors">Blog</a>
+          <a href="about.html" class="text-gray-300 hover:text-[#a27200] transition-colors">About Us</a>
+        </nav>
+      </div>
+      <div class="text-center md:text-right">
+        <h3 class="text-lg font-bold mb-3 text-[#a27200]">Follow Us</h3>
+        <div class="flex justify-center md:justify-end space-x-4">
+          <a href="https://www.instagram.com/motovictus_enduro/" target="_blank" rel="noopener" class="hover:text-[#a27200] transition-all hover:scale-110" aria-label="Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.76 5.76 0 0122 7.75v8.5A5.76 5.76 0 0116.25 22h-8.5A5.76 5.76 0 012 16.25v-8.5A5.76 5.76 0 017.75 2zm0 1.5A4.26 4.26 0 003.5 7.75v8.5A4.26 4.26 0 007.75 20.5h8.5a4.26 4.26 0 004.25-4.25v-8.5A4.26 4.26 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm4.75-.88a1.12 1.12 0 110 2.25 1.12 1.12 0 010-2.25z"/></svg></a>
+          <a href="#" class="hover:text-[#a27200] transition-all hover:scale-110" aria-label="Facebook"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.95v-7.04H8v-2.91h2.5V9.41c0-2.48 1.48-3.85 3.74-3.85 1.08 0 2.21.19 2.21.19v2.44h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.91h-2.3V21.95A10 10 0 0022 12z"/></svg></a>
+          <a href="#" class="hover:text-[#a27200] transition-all hover:scale-110" aria-label="YouTube"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11-3.2c0-1.3-.12-2.59-.36-3.85-.24-1.33-1.01-2.44-2.19-3.02C16.72 4 12 4 12 4s-4.72 0-6.45.93c-1.18.58-1.95 1.69-2.19 3.02A23.72 23.72 0 003 11.8v.4c0 1.3.12 2.59.36 3.85.24 1.33 1.01 2.44 2.19 3.02C7.28 20 12 20 12 20s4.72 0 6.45-.93c1.18-.58 1.95-1.69 2.19-3.02.24-1.26.36-2.55.36-3.85v-.4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-6 text-center">
+      <p class="text-sm text-gray-400">© <span id="currentYear"></span> MOTOVICTUS — Ride Longer. Ride Smarter. All rights reserved.</p>
+    </div>
+  </div>
+  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</footer>
 
 <!-- Common JavaScript -->
 <script src="js/common.js"></script>
-<script>
-  // Initialize page
-  initPage();
-</script>
 
 </body>
 </html>
