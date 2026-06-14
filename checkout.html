@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting to secure checkout — MOTOVICTUS</title>
+<meta name="robots" content="noindex">
+
+<!-- Fonts and Styles -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#000000">
+
+<style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-black text-white shadow-xl border-b-2 border-[#a27200]">
+  <div class="max-w-7xl mx-auto flex items-center p-4">
+    <a href="index.html" class="flex items-center space-x-3 group">
+      <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md">
+      <span class="text-2xl font-bold group-hover:text-[#a27200] transition-colors">MOTOVICTUS</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-md mx-auto px-4 py-20 text-center">
+  <div id="loading">
+    <svg class="animate-spin w-12 h-12 mx-auto mb-5 text-[#a27200]" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+    </svg>
+    <h1 class="text-xl font-bold text-gray-900">Taking you to secure checkout…</h1>
+    <p class="text-gray-500 mt-2">You'll complete payment on Stripe's secure page.</p>
+  </div>
+
+  <div id="error" class="hidden bg-red-50 border-2 border-red-200 text-red-800 rounded-lg p-6">
+    <p class="font-semibold mb-2">We couldn't start checkout.</p>
+    <p id="errorMsg" class="text-sm"></p>
+    <a href="products.html" class="inline-block mt-4 text-[#a27200] font-semibold hover:underline">← Back to products</a>
+  </div>
+</main>
+
+<script>
+// Must match the Worker URL used elsewhere.
+const WORKER_URL = 'https://motovictus-checkout.motovictus.workers.dev';
+
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const sku = params.get('sku');
+  let qty = parseInt(params.get('qty'), 10);
+  if (!qty || qty < 1) qty = 1;
+  const region = params.get('region') === 'international' ? 'international' : 'domestic';
+
+  function showError(msg) {
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('errorMsg').textContent = msg;
+    document.getElementById('error').classList.remove('hidden');
+  }
+
+  if (!sku) { showError('That product link is missing required details.'); return; }
+
+  try {
+    const res = await fetch(WORKER_URL + '/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sku, qty, region }),
+    });
+    const data = await res.json();
+    if (!res.ok || data.error || !data.url) {
+      throw new Error(data.error || 'Could not start checkout.');
+    }
+    window.location.href = data.url;
+  } catch (err) {
+    showError(err.message);
+  }
+})();
+</script>
+</body>
+</html>

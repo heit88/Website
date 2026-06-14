@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Confirmed — MOTOVICTUS</title>
+<meta name="robots" content="noindex">
+
+<!-- Fonts and Styles -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#000000">
+
+<style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-black text-white sticky top-0 z-50 shadow-xl border-b-2 border-[#a27200]">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between p-4">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md transition-transform group-hover:scale-105">
+        <span class="text-2xl font-bold transition-colors group-hover:text-[#a27200]">MOTOVICTUS</span>
+      </a>
+      <p class="text-sm md:text-base text-[#a27200] italic tracking-wide mt-1 font-medium">Ride Longer. Ride Smarter.</p>
+    </div>
+    <nav class="hidden md:flex space-x-8 text-lg font-semibold mt-3 md:mt-0">
+      <a href="products.html" class="hover:text-[#a27200] transition-colors">Products</a>
+      <a href="instructions.html" class="hover:text-[#a27200] transition-colors">Instructions</a>
+      <a href="blog/" class="hover:text-[#a27200] transition-colors">Blog</a>
+      <a href="about.html" class="hover:text-[#a27200] transition-colors">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-16 text-center">
+  <div class="bg-white rounded-xl shadow-lg p-10">
+    <svg class="w-16 h-16 mx-auto mb-4 text-[#a27200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <h1 class="text-3xl font-bold mb-3 text-gray-900">Thank you for your order!</h1>
+    <p id="confirmMsg" class="text-gray-600 mb-2">Your payment was successful and your order is confirmed.</p>
+    <p class="text-gray-600 mb-8">A receipt has been emailed to you. We'll be in touch with shipping details.</p>
+    <a href="products.html" class="btn-primary inline-block bg-[#a27200] hover:bg-[#8a6000] text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all">
+      Continue shopping
+    </a>
+  </div>
+</main>
+
+<footer class="bg-black text-white py-12 mt-16 border-t-2 border-[#a27200]">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="border-t border-gray-700 pt-6 text-center">
+      <p class="text-sm text-gray-400">© <span id="currentYear"></span> MOTOVICTUS — Ride Longer. Ride Smarter. All rights reserved.</p>
+    </div>
+  </div>
+  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script>
+// Must match the Worker URL used in checkout.html.
+const WORKER_URL = 'https://motovictus-checkout.motovictus.workers.dev';
+
+(async function () {
+  const sessionId = new URLSearchParams(location.search).get('session_id');
+  if (!sessionId) return;
+  try {
+    const res = await fetch(WORKER_URL + '/session-status?session_id=' + encodeURIComponent(sessionId));
+    const data = await res.json();
+    if (data && data.customer_email) {
+      document.getElementById('confirmMsg').textContent =
+        'Your payment was successful and your order is confirmed. A receipt was sent to ' + data.customer_email + '.';
+    }
+  } catch (_) { /* non-fatal: the static thank-you message stands */ }
+})();
+</script>
+</body>
+</html>

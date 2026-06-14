@@ -1,0 +1,4 @@
+# Wrangler local state/cache — not for version control
+.wrangler/
+node_modules/
+.dev.vars
