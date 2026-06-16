@@ -102,42 +102,57 @@ function cartHref() {
   return (location.pathname.indexOf('/blog/') !== -1 ? '../' : '') + 'cart.html';
 }
 
-// Inject a "Cart" link with a live count into the header nav (desktop + mobile).
+// Cart icon SVG markup at the given Tailwind size.
+function cartIconSvg(sizeClass) {
+  return '<svg class="' + sizeClass + '" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>';
+}
+function countBadge(id) {
+  return '<span id="' + id + '" class="absolute -top-2 -right-2 bg-[#a27200] text-white text-xs font-bold ' +
+    'rounded-full min-w-[1.25rem] h-5 leading-5 text-center px-1 hidden">0</span>';
+}
+
+// Cart icon: in the desktop nav, and a standalone icon next to the hamburger on
+// mobile (its own icon, NOT inside the collapsed menu).
 function initCartBadge() {
   const href = cartHref();
   const desktop = document.getElementById('menu');
-  const mobile = document.getElementById('mobile-menu');
+  const menuBtn = document.getElementById('menu-btn');
 
   if (desktop && !document.getElementById('cartLink')) {
     const a = document.createElement('a');
     a.id = 'cartLink';
     a.href = href;
-    a.className = 'hover:text-[#a27200] transition-colors relative group flex items-center gap-1';
-    a.innerHTML =
-      '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>' +
-      '<span id="cartCount" class="bg-[#a27200] text-white text-xs font-bold rounded-full px-2 py-0.5 hidden">0</span>';
+    a.setAttribute('aria-label', 'Cart');
+    a.className = 'hover:text-[#a27200] transition-colors relative flex items-center';
+    a.innerHTML = cartIconSvg('w-6 h-6') + countBadge('cartCount');
     desktop.appendChild(a);
   }
-  if (mobile && !document.getElementById('cartLinkMobile')) {
+
+  // Mobile: insert just before the hamburger; ml-auto groups it + the menu on
+  // the right, leaving the logo on the left.
+  if (menuBtn && !document.getElementById('cartLinkMobile')) {
     const a = document.createElement('a');
     a.id = 'cartLinkMobile';
     a.href = href;
-    a.className = 'hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all';
-    a.innerHTML = 'Cart (<span id="cartCountMobile">0</span>)';
-    mobile.appendChild(a);
+    a.setAttribute('aria-label', 'Cart');
+    a.className = 'md:hidden ml-auto mr-4 relative flex items-center text-white';
+    a.innerHTML = cartIconSvg('w-7 h-7') + countBadge('cartCountMobile');
+    menuBtn.parentNode.insertBefore(a, menuBtn);
   }
+
   renderCartBadge();
 }
 
 function renderCartBadge() {
   const n = MVCart.count();
-  const badge = document.getElementById('cartCount');
-  if (badge) {
-    badge.textContent = n;
-    badge.classList.toggle('hidden', n === 0);
-  }
-  const mob = document.getElementById('cartCountMobile');
-  if (mob) mob.textContent = n;
+  ['cartCount', 'cartCountMobile'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.textContent = n;
+      el.classList.toggle('hidden', n === 0);
+    }
+  });
 }
 
 // Brief toast confirmation, e.g. after adding to the cart.
