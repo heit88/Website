@@ -13,7 +13,8 @@ this is a separate checkout API the front-end (`checkout.html`) calls.
 | POST | `/create-checkout-session` | Body `{ items: [{ sku, qty }], region }` (or single `{ sku, qty, region }`) → `{ url, sessionId }` (redirect to `url`) |
 | GET | `/session-status?session_id=…` | `{ status, payment_status, customer_email }` for the success page |
 
-`region` is `domestic` (US) or `international` (GB, AU). Shipping =
+`region` is `domestic` (US) or `international` (UK, Canada, Australia, EU —
+see `INTERNATIONAL_COUNTRIES` in `src/index.js`). Shipping =
 `base + (totalUnits − 1) × extra` per region, where `totalUnits` is the sum of
 quantities across the cart; amounts are in `src/index.js` → `SHIPPING` (cents).
 

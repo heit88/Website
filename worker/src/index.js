@@ -18,8 +18,18 @@ const ALLOWED_ORIGINS = [
   'http://127.0.0.1:8000',
 ];
 
-// Countries we ship to (ISO-3166-1 alpha-2). UK = GB.
-const SHIP_TO = ['US', 'GB', 'AU'];
+// Ship-to countries (ISO-3166-1 alpha-2). Edit these to change where we ship;
+// every international country shares the same flat international rate.
+const DOMESTIC_COUNTRIES = ['US'];
+const INTERNATIONAL_COUNTRIES = [
+  'GB', // United Kingdom
+  'CA', // Canada
+  'AU', // Australia
+  // EU member states
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
+  'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
+  'SI', 'ES', 'SE',
+];
 
 // Product catalog: SKU -> { name, cents }. Prices are defined here (Stripe
 // "inline price_data"), so there are NO price IDs to look up. Edit a price by
@@ -206,7 +216,7 @@ async function createCheckoutSession(req, env, origin) {
   }
 
   // Region locks the shipping rate and the countries Stripe offers on its page.
-  const allowedCountries = region === 'international' ? ['GB', 'AU'] : ['US'];
+  const allowedCountries = region === 'international' ? INTERNATIONAL_COUNTRIES : DOMESTIC_COUNTRIES;
 
   const params = {
     mode: 'payment',
