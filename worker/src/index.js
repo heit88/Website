@@ -175,36 +175,48 @@ async function readJson(req) {
 }
 
 async function createCheckoutSession(req, env, origin) {
-  const { sku, qty, region } = await readJson(req);
-  const item = PRICE_CATALOG[sku];
-  if (!item) {
-    return json({ error: `Unknown SKU: ${sku}` }, 400, origin);
+  const body = await readJson(req);
+  const region = body.region === 'international' ? 'international' : 'domestic';
+
+  // Accept a cart (`items: [{ sku, qty }]`) or a single `{ sku, qty }`.
+  const rawItems =
+    Array.isArray(body.items) && body.items.length ? body.items : [{ sku: body.sku, qty: body.qty }];
+
+  const lineItems = [];
+  let totalUnits = 0;
+  for (const it of rawItems) {
+    const item = PRICE_CATALOG[it.sku];
+    if (!item) {
+      return json({ error: `Unknown SKU: ${it.sku}` }, 400, origin);
+    }
+    const quantity = Math.min(MAX_QTY, Math.max(1, parseInt(it.qty, 10) || 1));
+    totalUnits += quantity;
+    lineItems.push({
+      quantity,
+      price_data: {
+        currency: 'usd',
+        unit_amount: item.cents,
+        tax_behavior: 'exclusive',
+        product_data: { name: item.name, tax_code: PRODUCT_TAX_CODE },
+      },
+    });
   }
-  const quantity = Math.min(MAX_QTY, Math.max(1, parseInt(qty, 10) || 1));
-  // Region is chosen on the product page; it locks the shipping rate and the
-  // countries Stripe lets the customer pick on its hosted page.
-  const isIntl = region === 'international';
-  const allowedCountries = isIntl ? ['GB', 'AU'] : ['US'];
+  if (!lineItems.length) {
+    return json({ error: 'Cart is empty' }, 400, origin);
+  }
+
+  // Region locks the shipping rate and the countries Stripe offers on its page.
+  const allowedCountries = region === 'international' ? ['GB', 'AU'] : ['US'];
 
   const params = {
     mode: 'payment',
-    line_items: [
-      {
-        quantity,
-        price_data: {
-          currency: 'usd',
-          unit_amount: item.cents,
-          tax_behavior: 'exclusive',
-          product_data: { name: item.name, tax_code: PRODUCT_TAX_CODE },
-        },
-      },
-    ],
+    line_items: lineItems,
     shipping_address_collection: { allowed_countries: allowedCountries },
-    shipping_options: computeShipping(isIntl ? 'international' : 'domestic', quantity),
+    shipping_options: computeShipping(region, totalUnits),
     automatic_tax: { enabled: AUTOMATIC_TAX },
-    metadata: { sku, qty: String(quantity), region: isIntl ? 'international' : 'domestic' },
+    metadata: { region, units: String(totalUnits) },
     success_url: 'https://motovictus.com/checkout-success.html?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: 'https://motovictus.com/products.html',
+    cancel_url: 'https://motovictus.com/cart.html',
   };
 
   const session = await stripe(env, 'POST', '/checkout/sessions', params);

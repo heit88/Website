@@ -10,12 +10,12 @@ this is a separate checkout API the front-end (`checkout.html`) calls.
 
 | Method | Path | Purpose |
 |---|---|---|
-| POST | `/create-checkout-session` | Body `{ sku, qty, region }` → `{ url, sessionId }` (redirect to `url`) |
+| POST | `/create-checkout-session` | Body `{ items: [{ sku, qty }], region }` (or single `{ sku, qty, region }`) → `{ url, sessionId }` (redirect to `url`) |
 | GET | `/session-status?session_id=…` | `{ status, payment_status, customer_email }` for the success page |
 
 `region` is `domestic` (US) or `international` (GB, AU). Shipping =
-`base + (qty − 1) × extra` per region; amounts are in `src/index.js` → `SHIPPING`
-(cents).
+`base + (totalUnits − 1) × extra` per region, where `totalUnits` is the sum of
+quantities across the cart; amounts are in `src/index.js` → `SHIPPING` (cents).
 
 ## One-time setup
 

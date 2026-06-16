@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Cart — MOTOVICTUS</title>
+<meta name="robots" content="noindex">
+
+<!-- Fonts and Styles -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#000000">
+
+<style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-black text-white sticky top-0 z-50 shadow-xl border-b-2 border-[#a27200]">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between p-4">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <img src="images/logo.png" alt="Motovictus Logo" class="h-12 w-auto rounded-md transition-transform group-hover:scale-105">
+        <span class="text-2xl font-bold transition-colors group-hover:text-[#a27200]">MOTOVICTUS</span>
+      </a>
+      <p class="text-sm md:text-base text-[#a27200] italic tracking-wide mt-1 font-medium">Ride Longer. Ride Smarter.</p>
+    </div>
+    <button class="md:hidden flex flex-col space-y-1 mt-3 md:mt-0 focus:outline-none focus:ring-2 focus:ring-[#a27200] rounded p-2" id="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    </button>
+    <nav id="menu" class="hidden md:flex space-x-8 text-lg font-semibold mt-3 md:mt-0 items-center">
+      <a href="products.html" class="hover:text-[#a27200] transition-colors">Products</a>
+      <a href="instructions.html" class="hover:text-[#a27200] transition-colors">Instructions</a>
+      <a href="blog/" class="hover:text-[#a27200] transition-colors">Blog</a>
+      <a href="about.html" class="hover:text-[#a27200] transition-colors">About Us</a>
+    </nav>
+  </div>
+  <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-[#1a1a1a] p-4 md:hidden border-t border-[#a27200]/30">
+    <a href="products.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Products</a>
+    <a href="instructions.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Instructions</a>
+    <a href="blog/" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">Blog</a>
+    <a href="about.html" class="hover:text-[#a27200] hover:bg-[#2a2a2a] block py-2 px-3 rounded transition-all">About Us</a>
+  </nav>
+  <script>
+    (function () {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          menuBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('flex');
+        });
+      }
+    })();
+  </script>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 py-10">
+  <h1 class="text-3xl font-bold mb-8 text-gray-900">Your Cart</h1>
+
+  <!-- Empty state -->
+  <div id="emptyCart" class="hidden bg-white rounded-xl shadow-lg p-10 text-center">
+    <p class="text-lg text-gray-600 mb-6">Your cart is empty.</p>
+    <a href="products.html" class="btn-primary inline-block bg-[#a27200] hover:bg-[#8a6000] text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all">Browse products</a>
+  </div>
+
+  <div id="cartContent" class="hidden grid lg:grid-cols-3 gap-8">
+    <!-- Line items -->
+    <section class="lg:col-span-2">
+      <div id="cartItems" class="bg-white rounded-xl shadow-lg divide-y divide-gray-200"></div>
+    </section>
+
+    <!-- Order summary -->
+    <aside class="lg:col-span-1">
+      <div class="bg-white rounded-xl shadow-lg p-6 lg:sticky lg:top-28">
+        <h2 class="text-lg font-bold mb-4 text-gray-900">Order Summary</h2>
+
+        <label for="region" class="block font-semibold mb-2 text-gray-800">Ship to:</label>
+        <select id="region" class="border-2 border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:border-[#a27200] focus:ring-2 focus:ring-[#a27200]/20 transition-all">
+          <option value="domestic">United States</option>
+          <option value="international">International (UK &amp; Australia)</option>
+        </select>
+
+        <div class="space-y-2 border-t border-gray-200 pt-4">
+          <div class="flex justify-between text-gray-700"><span>Subtotal</span><span id="sumSubtotal">—</span></div>
+          <div class="flex justify-between text-gray-700"><span>Shipping</span><span id="sumShipping">—</span></div>
+          <div class="flex justify-between text-lg font-bold text-gray-900 border-t border-gray-200 pt-2"><span>Total</span><span id="sumTotal">—</span></div>
+          <p class="text-xs text-gray-400 pt-1">Tax (if applicable) is calculated by Stripe at payment.</p>
+        </div>
+
+        <button id="checkoutBtn"
+          class="btn-primary mt-5 inline-block bg-[#a27200] hover:bg-[#8a6000] text-white px-8 py-4 rounded-lg font-bold text-lg w-full text-center shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none">
+          Checkout
+        </button>
+        <div id="checkoutError" class="hidden text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3 mt-3"></div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="bg-black text-white py-12 mt-16 border-t-2 border-[#a27200]">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="border-t border-gray-700 pt-6 text-center">
+      <p class="text-sm text-gray-400">© <span id="currentYear"></span> MOTOVICTUS — Ride Longer. Ride Smarter. All rights reserved.</p>
+    </div>
+  </div>
+  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+// Must match the Worker URL used elsewhere.
+const WORKER_URL = 'https://motovictus-checkout.motovictus.workers.dev';
+
+// Shipping for display only — mirrors worker/src/index.js → SHIPPING (cents).
+// Keep these in sync with the Worker (the Worker is the source of truth).
+const SHIP_DISPLAY = {
+  domestic:      { base: 800,  extra: 100 },
+  international: { base: 3000, extra: 100 },
+};
+function shippingCents(region, units) {
+  const t = region === 'international' ? SHIP_DISPLAY.international : SHIP_DISPLAY.domestic;
+  return units > 0 ? t.base + (units - 1) * t.extra : 0;
+}
+
+const usd = (cents) => '$' + (cents / 100).toFixed(2);
+const $ = (id) => document.getElementById(id);
+
+function render() {
+  const cart = MVCart.get();
+  if (!cart.length) {
+    $('emptyCart').classList.remove('hidden');
+    $('cartContent').classList.add('hidden');
+    return;
+  }
+  $('emptyCart').classList.add('hidden');
+  $('cartContent').classList.remove('hidden');
+
+  const container = $('cartItems');
+  container.innerHTML = '';
+  cart.forEach((item) => {
+    const row = document.createElement('div');
+    row.className = 'flex items-center gap-4 p-4';
+    row.innerHTML =
+      '<div class="flex-1 min-w-0">' +
+        '<p class="font-semibold text-gray-900 truncate">' + item.name + '</p>' +
+        '<p class="text-sm text-gray-500">' + usd(item.cents) + ' each</p>' +
+      '</div>' +
+      '<div class="flex items-center border-2 border-gray-300 rounded-lg overflow-hidden">' +
+        '<button type="button" class="qtyMinus px-3 py-1.5 text-lg font-bold text-gray-600 hover:bg-gray-100" aria-label="Decrease">−</button>' +
+        '<input class="qtyInput w-12 text-center py-1.5 border-0 focus:ring-0" type="number" min="1" max="' + MVCart.MAX_QTY + '" value="' + item.qty + '">' +
+        '<button type="button" class="qtyPlus px-3 py-1.5 text-lg font-bold text-gray-600 hover:bg-gray-100" aria-label="Increase">+</button>' +
+      '</div>' +
+      '<div class="w-20 text-right font-semibold text-gray-900">' + usd(item.cents * item.qty) + '</div>' +
+      '<button type="button" class="removeBtn text-gray-400 hover:text-red-600 transition-colors p-1" aria-label="Remove">' +
+        '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>' +
+      '</button>';
+
+    row.querySelector('.qtyMinus').addEventListener('click', () => MVCart.setQty(item.sku, item.qty - 1));
+    row.querySelector('.qtyPlus').addEventListener('click', () => MVCart.setQty(item.sku, item.qty + 1));
+    row.querySelector('.qtyInput').addEventListener('change', (e) => MVCart.setQty(item.sku, e.target.value));
+    row.querySelector('.removeBtn').addEventListener('click', () => MVCart.remove(item.sku));
+    container.appendChild(row);
+  });
+
+  updateSummary();
+}
+
+function updateSummary() {
+  const subtotal = MVCart.subtotalCents();
+  const units = MVCart.totalUnits();
+  const ship = shippingCents($('region').value, units);
+  $('sumSubtotal').textContent = usd(subtotal);
+  $('sumShipping').textContent = usd(ship);
+  $('sumTotal').textContent = usd(subtotal + ship);
+}
+
+$('region').addEventListener('change', updateSummary);
+document.addEventListener('mv-cart-changed', render);
+
+$('checkoutBtn').addEventListener('click', async () => {
+  const cart = MVCart.get();
+  if (!cart.length) return;
+  const btn = $('checkoutBtn');
+  $('checkoutError').classList.add('hidden');
+  btn.disabled = true;
+  btn.textContent = 'Starting checkout…';
+  try {
+    const res = await fetch(WORKER_URL + '/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: cart.map((i) => ({ sku: i.sku, qty: i.qty })),
+        region: $('region').value,
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok || data.error || !data.url) throw new Error(data.error || 'Could not start checkout.');
+    window.location.href = data.url;
+  } catch (err) {
+    $('checkoutError').textContent = err.message;
+    $('checkoutError').classList.remove('hidden');
+    btn.disabled = false;
+    btn.textContent = 'Checkout';
+  }
+});
+
+render();
+</script>
+</body>
+</html>
