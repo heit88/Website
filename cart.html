@@ -150,9 +150,9 @@ function render() {
   container.innerHTML = '';
   cart.forEach((item) => {
     const row = document.createElement('div');
-    row.className = 'flex items-center gap-4 p-4';
+    row.className = 'flex flex-wrap items-center gap-3 p-4';
     row.innerHTML =
-      '<div class="flex-1 min-w-0">' +
+      '<div class="min-w-0 basis-full sm:basis-0 sm:grow">' +
         '<p class="font-semibold text-gray-900 truncate">' + item.name + '</p>' +
         '<p class="text-sm text-gray-500">' + usd(item.cents) + ' each</p>' +
       '</div>' +
@@ -161,8 +161,8 @@ function render() {
         '<input class="qtyInput w-12 text-center py-1.5 border-0 focus:ring-0" type="number" min="1" max="' + MVCart.MAX_QTY + '" value="' + item.qty + '">' +
         '<button type="button" class="qtyPlus px-3 py-1.5 text-lg font-bold text-gray-600 hover:bg-gray-100" aria-label="Increase">+</button>' +
       '</div>' +
-      '<div class="w-20 text-right font-semibold text-gray-900">' + usd(item.cents * item.qty) + '</div>' +
-      '<button type="button" class="removeBtn text-gray-400 hover:text-red-600 transition-colors p-1" aria-label="Remove">' +
+      '<div class="text-right font-semibold text-gray-900 ml-auto sm:ml-0 sm:w-20">' + usd(item.cents * item.qty) + '</div>' +
+      '<button type="button" class="removeBtn text-gray-400 hover:text-red-600 transition-colors p-1 shrink-0" aria-label="Remove">' +
         '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>' +
       '</button>';
 
