@@ -114,6 +114,8 @@
 	  <img src="images/map_switch_relocation_kit.jpg" alt="Under-Bar Accessory Mount Kit product view" class="w-full aspect-square object-cover flex-shrink-0" loading="eager">
 	  <img src="images/map_switch_relocation_kit_installed_wo_switch.jpg" alt="Under-Bar Accessory Mount Kit installed without accessory" class="w-full aspect-square object-cover flex-shrink-0" loading="lazy">
 	  <img src="images/map_switch_relocation_kit_installed.jpg" alt="Under-Bar Accessory Mount Kit installed with map switch" class="w-full aspect-square object-cover flex-shrink-0" loading="lazy">
+	  <img src="images/map_switch_relocation_kit_phone_mount.jpg" alt="Under-Bar Accessory Mount Kit holding a phone mount, rider view" class="w-full aspect-square object-cover flex-shrink-0" loading="lazy">
+	  <img src="images/map_switch_relocation_kit_phone_mount_detail.jpg" alt="Close-up of the Under-Bar Accessory Mount Kit clamped below the handlebar with a phone mount" class="w-full aspect-square object-cover flex-shrink-0" loading="lazy">
 	</div>
 
 	<!-- Navigation Arrows -->
@@ -133,6 +135,8 @@
 	  <button class="dot w-3 h-3 rounded-full bg-white/80 transition-all" data-index="0" aria-label="Go to image 1"></button>
 	  <button class="dot w-3 h-3 rounded-full bg-white/50 transition-all" data-index="1" aria-label="Go to image 2"></button>
 	  <button class="dot w-3 h-3 rounded-full bg-white/50 transition-all" data-index="2" aria-label="Go to image 3"></button>
+	  <button class="dot w-3 h-3 rounded-full bg-white/50 transition-all" data-index="3" aria-label="Go to image 4"></button>
+	  <button class="dot w-3 h-3 rounded-full bg-white/50 transition-all" data-index="4" aria-label="Go to image 5"></button>
 	</div>
 	</div>
 	</div>
@@ -143,7 +147,7 @@
 	  const nextBtn = document.getElementById('nextBtn');
 	  const dots = document.querySelectorAll('.dot');
 	  let currentIndex = 0;
-	  const totalImages = 3;
+	  const totalImages = 5;
 
 	  function updateCarousel() {
 	    track.style.transform = `translateX(-${currentIndex * 100}%)`;
