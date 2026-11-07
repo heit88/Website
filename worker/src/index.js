@@ -31,16 +31,18 @@ const INTERNATIONAL_COUNTRIES = [
   'SI', 'ES', 'SE',
 ];
 
-// Product catalog: SKU -> { name, cents }. Prices are defined here (Stripe
+// Product catalog: SKU -> { name, cents, part }. Prices are defined here (Stripe
 // "inline price_data"), so there are NO price IDs to look up. Edit a price by
 // changing `cents` (e.g. $69.95 = 6995). Keep names in sync with the site.
+// `part` is the website Part# — sent to Stripe as product metadata so the
+// shipping dashboard can look up customs info per product.
 const PRICE_CATALOG = {
-  'clutch-brembo':   { name: 'Enduro Clutch Spring — Brembo',       cents: 6995 },
-  'clutch-braktec':  { name: 'Enduro Clutch Spring — Braktec',      cents: 6995 },
-  'clutch-magura':   { name: 'Enduro Clutch Spring — Magura',       cents: 6995 },
-  'bar-riser':       { name: '10mm Bar Riser Kit',                  cents: 2495 },
-  'under-bar-mount': { name: 'Under-Bar Accessory Mount Kit',       cents: 4995 },
-  'steering-stem':   { name: 'Universal 7/8" Steering Stem Mount',  cents: 2495 },
+  'clutch-brembo':   { name: 'Enduro Clutch Spring — Brembo',       cents: 6995, part: '11-00000' },
+  'clutch-braktec':  { name: 'Enduro Clutch Spring — Braktec',      cents: 6995, part: '11-00001' },
+  'clutch-magura':   { name: 'Enduro Clutch Spring — Magura',       cents: 6995, part: '11-00002' },
+  'bar-riser':       { name: '10mm Bar Riser Kit',                  cents: 2495, part: '15-00002' },
+  'under-bar-mount': { name: 'Under-Bar Accessory Mount Kit',       cents: 4995, part: '15-00001' },
+  'steering-stem':   { name: 'Universal 7/8" Steering Stem Mount',  cents: 2495, part: '15-00000' },
 };
 
 // Max units per checkout (also bounds the product-page quantity selector).
@@ -207,7 +209,11 @@ async function createCheckoutSession(req, env, origin) {
         currency: 'usd',
         unit_amount: item.cents,
         tax_behavior: 'exclusive',
-        product_data: { name: item.name, tax_code: PRODUCT_TAX_CODE },
+        product_data: {
+          name: item.name,
+          tax_code: PRODUCT_TAX_CODE,
+          metadata: { part_number: item.part, sku: it.sku },
+        },
       },
     });
   }
