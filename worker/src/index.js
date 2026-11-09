@@ -197,7 +197,7 @@ async function createCheckoutSession(req, env, origin) {
   const lineItems = [];
   let totalUnits = 0;
   for (const it of rawItems) {
-    const item = PRICE_CATALOG[it.sku];
+    const item = typeof it.sku === 'string' && Object.hasOwn(PRICE_CATALOG, it.sku) ? PRICE_CATALOG[it.sku] : null;
     if (!item) {
       return json({ error: `Unknown SKU: ${it.sku}` }, 400, origin);
     }
@@ -241,8 +241,9 @@ async function createCheckoutSession(req, env, origin) {
 
 async function sessionStatus(url, env, origin) {
   const id = url.searchParams.get('session_id');
-  if (!id) return json({ error: 'Missing session_id' }, 400, origin);
-  const session = await stripe(env, 'GET', `/checkout/sessions/${id}`);
+  // Only real Checkout Session IDs: anything else could steer the request to another Stripe endpoint.
+  if (!id || !/^cs_(live|test)_[A-Za-z0-9]+$/.test(id)) return json({ error: 'Invalid session_id' }, 400, origin);
+  const session = await stripe(env, 'GET', `/checkout/sessions/${encodeURIComponent(id)}`);
   return json(
     {
       status: session.status,
